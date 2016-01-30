@@ -143,7 +143,7 @@ window.onload = function() {
             this.image = game.assets['res/sarah.png'];
             this.facing = "right";
          }
-         else if (game.input.shoot) {
+         if (game.input.shoot) {
             // Shoot.
             console.log("Pew pew!");
             var bullet = new Bullet();
@@ -187,12 +187,14 @@ window.onload = function() {
          var birdHits = Bullet.intersect(Bird);
          for (var i = 0, len = birdHits.length; i < len; i++) {
             //console.log("hit!");
+            game.rootScene.removeChild(birdHits[i][0]);
             health += 1;
          }
          
          var poopHits = Poop.intersect(Sarah);
          for (var i = 0, len = poopHits.length; i < len; i++) {
             //console.log("Sarah got shitted on!");
+            game.rootScene.removeChild(poopHits[i][0]);
             health -= 5;
          }
          
