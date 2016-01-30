@@ -17,7 +17,9 @@ window.onload = function() {
    var game = new Game(width, height);
    game.preload('res/bird.gif', 'res/sarah.png', 
     'res/sarah_mirrored.png', 'res/national_anthem.wav',
-    'res/america.jpg', 'res/coors.png');
+    'res/america.jpg', 'res/coors.png',
+    'res/fart.wav', 'res/beer.wav', 'res/shot.wav',
+    'res/splat.wav', 'res/goodbyenormajean.wav');
    
    // Space bar == shoot
    game.keybind(32, "shoot");
@@ -91,6 +93,9 @@ window.onload = function() {
          return;
       }
       didLose = 1;
+
+      // Play the song
+      game.assets['res/goodbyenormajean.wav'].play();
 
       // Remove the bird and sarah
       game.rootScene.removeChild(sarah);
@@ -166,6 +171,7 @@ window.onload = function() {
             poop.x = this.x;
             poop.y = this.y + 100;
             poop.tl.moveBy(5, 800, 90);
+            //game.assets['res/fart.wav'].play();
             this.lastX = this.x;
             this.dumps++;
          }
@@ -262,6 +268,7 @@ window.onload = function() {
          for (var i = 0, len = poopHits.length; i < len; i++) {
             //console.log("Sarah got shitted on!");
             game.rootScene.removeChild(poopHits[i][0]);
+            game.assets['res/splat.wav'].play();
             health -= 5;
          }
 
@@ -269,6 +276,7 @@ window.onload = function() {
          for (var i = 0, len = beerHits.length; i < len; i++) {
             //console.log("Sarah got a beer on!");
             game.rootScene.removeChild(beerHits[i][0]);
+            game.assets['res/beer.wav'].play();
             bac += 0.016;
          }
 
