@@ -34,7 +34,7 @@ window.onload = function() {
       if (!didWin) {
          healthLabel.text = "Health: " + health;
       }
-      if (health >= 1000) {
+      if (health >= 1200) {
          win();
       }
    }
@@ -51,13 +51,7 @@ window.onload = function() {
       
       // Play our glorious anthem
       game.assets['res/national_anthem.wav'].play();
-      
-      // Set the winning text
-      healthLabel.text = "YOU WON";
-      healthLabel.font = "90px Comic Sans MS";
-      healthLabel.width = width;
-      healthLabel.y = height / 2;
-      
+
       for (var n = 0; n < 10; n++) {
          var flag = new Flag();
          flag.tl.delay(n + n).then(function() {
@@ -69,6 +63,14 @@ window.onload = function() {
          });
       }
       
+      // Set the winning text
+      game.rootScene.removeChild(healthLabel);
+      game.rootScene.addChild(healthLabel);
+      healthLabel.text = "YOU WON";
+      healthLabel.font = "90px Comic Sans MS";
+      healthLabel.width = width;
+      healthLabel.y = height / 2;
+
       //game.stop();
    }
    
