@@ -43,6 +43,13 @@ window.onload = function() {
    bacLabel.y = healthLabel.y + (healthLabel.height * 2) + 20;
    game.rootScene.addChild(bacLabel);
 
+   // A help label, too
+   var helpLabel = new Label("Arrows to move, space to shoot.");
+   helpLabel.font = "20px Comic Sans MS";
+   helpLabel.x = width - 320;
+   helpLabel.y = height - 40;
+   game.rootScene.addChild(helpLabel);
+
    var updateHealth = function() {
       if (!didWin && !didLose) {
          healthLabel.text = "Sarah's Health: " + health;
