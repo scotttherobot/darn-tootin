@@ -1,0 +1,18 @@
+body {
+   background-color: pink;
+   display: flex;           /* establish flex container */
+   justify-content: center; /* center items vertically, in this case */
+   align-items: center;     /* center items horizontally, in this case */
+}
+
+.stage {
+   width: 800px;
+   height: 800px;
+   overflow: hidden;
+   background-color: #7FDBFF;
+}
+
+.sidewalk {
+   min-height: 150px;
+   background-color: grey;
+}
